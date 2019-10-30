@@ -1,0 +1,189 @@
+#form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#form p {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+#form .multiple-choice button:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.multiple-choice {
+  display: flex; 
+  flex-direction: column;
+  padding: 0 50px;
+}
+
+#step-bar {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.step {
+  display: inline-block;
+  opacity: .3;
+  /* background-color: #444; */
+  color: #444;
+  /*color: rgb(236, 236, 236); */
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 25px;
+  width: 25px;
+  height: 25px;
+  margin: 10px 10px;
+  position: relative;
+  text-align: center;
+  transition: opacity 1s cubic-bezier(.24,.09,.34,.99);
+}
+
+.step::after {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background-color: #444;
+  position: absolute;
+  top: -20px;
+  left: 12px;
+}
+
+.done-step {
+  opacity: 1;
+  /* background-color: #444; */
+  /* color: #ececec; */
+}
+
+.current-step {
+  opacity: 1;
+  padding-top: 5px;
+  font-size: 18px;
+}
+
+.current-step::after {
+  height: 25px;
+  width: 3px;
+  left: 11px;
+}
+
+
+/* ------------------------- */
+
+
+
+.animation-ctn{
+  text-align:center;
+  padding-bottom: 70px;
+}
+
+	@-webkit-keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100px
+    }
+
+    100% {
+        stroke-dashoffset: 200px
+    }
+}
+
+@-ms-keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100px
+    }
+
+    100% {
+        stroke-dashoffset: 200px
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100px
+    }
+
+    100% {
+        stroke-dashoffset: 0px
+    }
+}
+
+@-webkit-keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 480px
+   
+    }
+
+    100% {
+        stroke-dashoffset: 960px;
+      
+    }
+}
+
+@-ms-keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 240px
+    }
+
+    100% {
+        stroke-dashoffset: 480px
+    }
+}
+
+@keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 480px 
+    }
+
+    100% {
+        stroke-dashoffset: 960px
+    }
+}
+
+@keyframes colored-circle { 
+    0% {
+        opacity:0
+    }
+
+    100% {
+        opacity:100
+    }
+}
+
+/* other styles */
+/* .svg svg {
+    display: none
+}
+ */
+.inlinesvg .svg svg {
+    display: inline
+}
+
+/* .svg img {
+    display: none
+} */
+
+.icon--order-success svg polyline {
+    -webkit-animation: checkmark 0.45s ease-in-out 1.5s backwards;
+    animation: checkmark 0.45s ease-in-out 1.5s backwards;
+}
+
+.icon--order-success svg circle {
+    -webkit-animation: checkmark-circle 0.8s ease-in-out backwards;
+    animation: checkmark-circle 0.8s ease-in-out backwards;
+    animation-delay: .6s;
+}
+.icon--order-success svg circle#colored {
+    -webkit-animation: colored-circle 0.8s ease-in-out 1.5s backwards;
+    animation: colored-circle 0.8s ease-in-out 1.5s backwards;
+} 

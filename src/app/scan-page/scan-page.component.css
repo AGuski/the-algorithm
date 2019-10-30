@@ -1,0 +1,100 @@
+:host() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#capture-container {
+  height: 77vh;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+#video-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  transition: opacity 2s;
+}
+
+#video {
+  position: absolute;
+
+  /* to change position in frame */
+  top: -400px;   
+
+  transform: scale(-1, 1);
+}
+
+#helper-canvas, #captured-canvas {
+  position: absolute;
+}
+
+#helper-canvas {
+  transition: transform 2s;
+}
+
+#flash {
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  pointer-events: none;
+}
+
+.progress-container {
+  width: 720px;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute; 
+  height: 100%;
+  filter: drop-shadow(2px 4px 16px black);
+}
+
+.progress-container span {
+  color: #ececec;
+  font-size: 44px;
+}
+
+.position-information {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.position-information p {
+  position: absolute;
+  width: auto;
+  color: black;
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+
+  padding-top: 15px;
+}
+
+.animate-pulse {
+  animation-name: animate-pulse;
+  animation-duration: .8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-pulse {
+  0% {
+      opacity: 0
+  }
+
+  100% {
+      opacity: 1
+  }
+}

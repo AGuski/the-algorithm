@@ -1,0 +1,44 @@
+<div id="capture-container">
+  <div id="video-container" [style.width.px]="videoWidth" [style.height.px]="videoHeight" [style.opacity]="streamReady ? 1 : 0">
+    <video #video autoplay id="video"></video>
+    <canvas #capturedCanvas id="captured-canvas" width="720" height="1080"></canvas>
+    <!-- <canvas id="helper-canvas" #helperCanvas width="400" height="600" [style.transform]="streamReady ? 'scale(1)' : 'scale(1.5)'"></canvas> -->
+    <div class="position-information" *ngIf="!capturedImageData">
+      <div class="face-frame" ></div>
+      <p>Please position your head as indicated.</p>
+    </div>
+  </div>
+
+  <div class="progress-container" *ngIf="faceRecognitionFailed">
+    <p style="color: red; font-weight: 600; text-align: center;" class="animate-pulse">
+      Facial recognition failed!<br>
+      Please press the "Try again" button.
+    </p>
+  </div>
+
+  <div class="progress-container" *ngIf="showAnalyticsInfo && !faceRecognitionFailed" @showHide>
+    <circle-progress
+      [percent]="analyzeProgress"
+    ></circle-progress>
+    <span>{{analyzeMessage}}</span>
+  </div>
+</div>
+
+<!--buttons -->
+
+<ng-container *ngIf="!isAnalyzing">
+  <button (click)="captureImage()" class="call-to-action" *ngIf="!capturedImageData">
+    <i class="fa fa-camera" aria-hidden="true" style="margin-right: 10px;"></i>
+    Take Picture
+  </button>
+  <button (click)="confirm()" class="call-to-action" *ngIf="capturedImageData && !faceRecognitionFailed">Analyse this photo</button>
+  <button (click)="reset()" *ngIf="capturedImageData">Try again</button>
+</ng-container>
+
+
+<div id="flash" *ngIf="capturedImageData" @flashAnimation></div>
+
+<div class="reset-button" *ngIf="!isAnalyzing">
+  <h1 (click)="resetApp()"><div class="icon-reset"></div>RESET</h1>
+</div>
+

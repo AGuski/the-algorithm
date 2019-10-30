@@ -1,0 +1,42 @@
+:host() {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+:host() > div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.animate-symbol {
+  animation-name: animate-symbol;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-symbol {
+  from {}
+  to {
+    transform: scale(1.2);
+  }
+}
+
+p.small {
+  margin: 0;
+  font-size: 32px;
+}
+
+.disclaimer {
+  font-size: 24px;
+  font-weight: 600;
+}

@@ -1,0 +1,43 @@
+<div *ngIf="state === 1" @routePageAnimation>
+  <div class="neural-network animate-symbol" (click)="goState(2)"></div>
+  <p>Touch the symbol to begin.</p>
+</div>
+
+
+<div *ngIf="state === 2" @routePageAnimation>
+  <p class="small">Dear Participant,</p>
+  <p class="small">
+    the following experience will lead you through a collection of questions about your person.
+  </p>
+  <p class="small">
+    In combination with a visual analysis of your facial features,
+    an advanced neural network algorithm will be able to create a personalised Life Success Probability Rate,
+    providing you with an estimation for your mathematical chance of succeeding and reaching your personal life goals.
+  </p>
+  <p class="disclaimer">
+    Disclaimer:<br>
+    The information and data provided by you will not be stored or transmitted to any external devices or service
+    and will be deleted directly after the analysis.
+  </p>
+
+  <button class="call-to-action" (click)="goState(3)">
+    I Agree and want to participate
+  </button>
+  <button (click)="goState(1)">
+    I do not want to participate
+  </button>
+</div>
+
+<div *ngIf="state === 3" @routePageAnimation>
+  <p>
+    Great!<br>
+    And thank you for your trust!
+  </p>
+  <p>
+    Please answer the following questions spontanous but also honestly.
+  </p>
+  <button class="call-to-action" (click)="goToQuestions()">
+    Proceed to questions
+    <i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px;"></i>
+  </button>
+</div>

@@ -1,0 +1,33 @@
+
+
+<div class="result-container" @routePageAnimation>
+  <div class="neural-network" [ngClass]="{
+    'rotate-center': state === 'ANALYSIS',
+    'rotate-last': state === 'RESULT'
+  }"></div>
+  
+  <p  [hidden]="state !== 'ANALYSIS'" class="info">Running Final Analysis…</p>
+  
+  <div class="result-container" *ngIf="state === 'RESULT'" @routePageAnimation>
+    <p class="life-info" style="padding-bottom: 0;">
+      Your average probability for a sucessful and fullfilling life by current social standards lies at
+    </p>
+    <p 
+      class="animate-number-pulse"
+      style="font-size: 66px; font-weight: 600; margin: 0; padding: 0" 
+      [ngStyle]="{'color': resultColor}"
+    >{{(resultNumber$ | async) || 0}}%</p>
+    <p class="life-info" style="padding-top: 0;">
+      as has been determined by the psychological evaluation of your answers and the visual facial analysis.
+    </p>
+    <p style="color: red; padding-top: 0; margin-top: 0;" class="info life-info" *ngIf="sendingData">
+      Please wait while your image is being combined with your designated peer group...
+    </p>
+  </div>
+
+  <div class="result-container" *ngIf="state === 'FINISHED'" @routePageAnimation>
+    <p>Thank you for your participation!</p> <!-- step away from the device ? -->
+    <p>Reset in {{restartCounter}} seconds...</p>
+  </div>
+</div>
+

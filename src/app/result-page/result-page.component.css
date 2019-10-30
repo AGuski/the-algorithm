@@ -1,0 +1,87 @@
+:host() {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.neural-network {
+  margin-top: 140px;
+}
+
+.rotate-center {
+	-webkit-animation: rotate-center 2.0s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite ;
+	        animation: rotate-center 2.0s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite ;
+}
+
+.rotate-last {
+	-webkit-animation: rotate-center 2.0s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+	        animation: rotate-center 2.0s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.info {
+  animation: info 1s cubic-bezier(0.5, 0, 0.5, 1) alternate infinite;
+}
+
+@keyframes info { 
+  0% {
+      opacity: .1
+  }
+
+  100% {
+      opacity:100
+  }
+}
+
+
+
+.animate-number-pulse {
+  animation-name: animate-number-pulse;
+  animation-duration: .8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-number-pulse {
+  from {}
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.life-info {
+  text-align: center;
+  /* margin: 0; */
+}

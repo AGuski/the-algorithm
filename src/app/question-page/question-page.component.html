@@ -1,0 +1,56 @@
+<div id="step-bar" @routePageAnimation>
+  <div 
+    class="step" 
+    *ngFor="let step of questions; let i = index;"
+    [ngClass]="{'done-step': i <= questionIndex, 'current-step': i === questionIndex}"
+  >
+    {{i+1}}
+  </div>
+</div>
+
+
+<div id="form" [@questionAnimation]="questionIndex" @routePageAnimation>
+
+  <ng-container *ngIf="!finishedQuestions">
+    <p>{{currentQuestion[langKey]}}</p>
+  
+    <div *ngIf="currentQuestion.type === 'binary'" style="display: inline-flex;">
+      <button (click)="next()">{{ langKey === 'en' ? 'Yes': 'Ja'}}</button>
+      <button (click)="next()">{{ langKey === 'en' ? 'No': 'Nein'}}</button>
+    </div>
+  
+    <div class="multiple-choice" *ngIf="currentQuestion.type === 'multi'">
+      <button *ngFor="let choice of currentQuestion.choices" (click)="next()">
+        {{choice}}
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="finishedQuestions">
+    <div class="animation-ctn" style="opacity: .1;">
+      <div class="icon icon--order-success svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="154px" height="154px">  
+          <g fill="none" stroke="#444" stroke-width="3"> 
+            <circle cx="77" cy="77" r="72" style="stroke-dasharray:480px, 480px; stroke-dashoffset: 960px;"></circle>
+            <circle id="colored" cx="77" cy="77" r="72" style="stroke-dasharray:480px, 480px; stroke-dashoffset: 960px;"></circle>
+            <polyline class="st0" stroke="#444" stroke-width="3" points="43.5,77.8 63.7,97.9 112.2,49.4 " style="stroke-dasharray:100px, 100px; stroke-dashoffset: 200px;"/>   
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p>You successfully completed the questionnaire.</p>
+    <button class="call-to-action" (click)="goToScan()">
+      Continue to photo analysis
+      <i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px;"></i>
+    </button>
+  </ng-container>
+
+</div>
+
+<div class="reset-button">
+  <h1 (click)="reset()"><div class="icon-reset"></div>RESET</h1>
+</div>
+
+
+
+
