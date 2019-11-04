@@ -28,7 +28,7 @@ export class QuestionPageComponent implements OnInit {
   questions = [{
     type: 'multi',
     en: 'Select your gender.',
-    choices: ['female', 'male', 'divers']
+    choices: ['female', 'male', 'diverse']
   }, {
     type: 'multi',
     en: 'Please select your age.',
@@ -102,7 +102,7 @@ export class QuestionPageComponent implements OnInit {
     ]
   }, {
     type: 'multi',
-    en: 'You prefer to approach other people ...',
+    en: 'How do you usually approach other people ...',
     choices: [
       'Positive and trusting',
       'Reluctantly',
@@ -117,7 +117,7 @@ export class QuestionPageComponent implements OnInit {
       'Endurance sports',
       'Strength and weight training',
       'Martial arts',
-      'Yoga / Pilates or similar'
+      'Other'
     ]
   }];
 

@@ -149,7 +149,7 @@ export class FaceComponent {
 
   private merge(newPointDefiner): Observable<any> {
     console.log('merging images...');
-    const totalImages = 32;
+    const totalImages = 40;
     const usedImage = 12;
     const animator = new ImgWarper.Animator(
       this.currentPointDefiner,
