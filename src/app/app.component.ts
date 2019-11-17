@@ -61,4 +61,9 @@ export class AppComponent implements OnInit {
   reset() {
     this.router.navigateByUrl('start');
   }
+
+  onStartTouch() {
+    document.body.requestFullscreen();
+  }
+
 }
